@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/navy"
+    tools:context=".ContactActivity">
+
+    <RelativeLayout
+        android:id="@+id/content_credentials"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/button_selector_white">
+
+        <Spinner
+            android:id="@+id/call_list"
+            android:layout_width="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_height="40dp"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-condensed" />
+
+        <EditText
+            android:id="@+id/selected_number"
+            android:layout_width="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/call_list"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/ic_person_blue_36dp"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Selected Contact No."/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/contact"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_call_black_36dp"
+        android:paddingVertical="10dp"
+        android:background="@drawable/icon_background"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/content_credentials"
+        android:layout_marginBottom="-75dp"/>
+
+    <Spinner
+        android:id="@+id/role_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset Password"
+        android:layout_below="@+id/contact"
+        android:layout_marginTop="75dp"
+        android:layout_toRightOf="@+id/call"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/call"
+        android:layout_marginLeft="140dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact"
+        android:layout_below="@+id/contact"
+        android:layout_marginTop="75dp"
+        android:textSize="20dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Call"
+        android:textColor="@color/black"
+        android:layout_below="@+id/content_credentials"
+        android:layout_marginTop="-25dp"
+        android:textSize="25dp"
+        android:fontFamily="sans-serif-condensed"
+        android:background="@drawable/button_selector1"/>
+
+</RelativeLayout>

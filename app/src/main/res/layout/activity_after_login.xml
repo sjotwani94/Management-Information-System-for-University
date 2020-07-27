@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/navy"
+    tools:context=".AfterLoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/maintext"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Choose A Service "
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:background="@drawable/button_selector5"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/verify_phone"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/maintext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:drawableLeft="@drawable/ic_account_circle_darkgreen_36dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/button_selector_white"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="  Call A Number  "
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/sms_verification"
+        android:layout_below="@+id/verify_phone"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_sms_darkgreen_36dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/button_selector_white"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="  Send A Custom SMS  "
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/send_email"
+        android:layout_below="@+id/sms_verification"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_email_blue_36dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/button_selector_white"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="  Send An E-mail "
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/whatsapp_sms"
+        android:layout_below="@+id/send_email"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_whatsapp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/button_selector_white"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="  Send a WhatsApp Message  "
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/open_web_view"
+        android:layout_below="@+id/whatsapp_sms"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_web_darkgreen_36dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/button_selector_white"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="  Open A Website in WebView "
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/open_list_view"
+        android:layout_below="@+id/open_web_view"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_view_list_darkgreen_36dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/button_selector_white"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="View Available Courses"
+        android:textSize="20dp"/>
+
+    </RelativeLayout>
+
+</ScrollView>

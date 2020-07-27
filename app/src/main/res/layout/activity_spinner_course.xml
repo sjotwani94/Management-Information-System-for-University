@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/navy"
+    tools:context=".SpinnerCourseActivity">
+
+    <RelativeLayout
+        android:id="@+id/content_credentials"
+        android:layout_width="380dp"
+        android:layout_height="420dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/button_selector_white">
+
+        <TextView
+            android:id="@+id/txt_roll_nos"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:layout_centerHorizontal="true"
+            android:text="Select Student's Roll No.:"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <Spinner
+            android:id="@+id/list_roll_nos"
+            android:layout_below="@id/txt_roll_nos"
+            android:layout_centerHorizontal="true"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:spinnerMode="dropdown"
+            style="@style/Widget.AppCompat.DropDownItem.Spinner"/>
+
+        <TextView
+            android:id="@+id/txt_courses"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_roll_nos"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:text="Select Course Code.:"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <Spinner
+            android:id="@+id/list_courses"
+            android:layout_below="@id/txt_courses"
+            android:layout_centerHorizontal="true"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:spinnerMode="dropdown"
+            style="@style/Widget.AppCompat.DropDownItem.Spinner"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/security"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/ic_launcher_account"
+        android:paddingVertical="10dp"
+        android:background="@drawable/icon_background"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/content_credentials"
+        android:layout_marginBottom="-75dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enroll Students into Courses"
+        android:layout_below="@+id/security"
+        android:layout_marginTop="75dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/submit_course"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Submit"
+        android:textColor="@color/black"
+        android:layout_below="@+id/content_credentials"
+        android:layout_marginTop="-25dp"
+        android:textSize="25dp"
+        android:fontFamily="sans-serif-condensed"
+        android:background="@drawable/button_selector"/>
+
+</RelativeLayout>
