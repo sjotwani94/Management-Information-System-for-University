@@ -156,7 +156,7 @@ public class RelativeLoginActivity extends AppCompatActivity {
                             studentIntent.putExtras(bundle);
                             startActivity(studentIntent);
                         }else {
-                            Intent studentIntent = new Intent(RelativeLoginActivity.this, AdminHomePage.class);
+                            Intent studentIntent = new Intent(RelativeLoginActivity.this, StudentHomePage.class);
                             Bundle bundle = new Bundle();
                             String name="";
                             String department="";

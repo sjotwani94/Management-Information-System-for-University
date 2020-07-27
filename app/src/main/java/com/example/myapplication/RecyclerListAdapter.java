@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,11 +16,13 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
     private List<RecyclerListData> functionsList;
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView courseDesc, courseMarks,courseGrade;
+        LinearLayout resultContainer;
         MyViewHolder(View view) {
             super(view);
             courseDesc = view.findViewById(R.id.course_desc);
             courseMarks = view.findViewById(R.id.course_marks);
             courseGrade = view.findViewById(R.id.course_grade);
+            resultContainer = view.findViewById(R.id.result_container);
         }
     }
     public RecyclerListAdapter(List<RecyclerListData> functionsList) {

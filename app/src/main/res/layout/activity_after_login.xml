@@ -93,20 +93,6 @@
         android:text="  Open A Website in WebView "
         android:textSize="20dp"/>
 
-    <Button
-        android:id="@+id/open_list_view"
-        android:layout_below="@+id/open_web_view"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_view_list_darkgreen_36dp"
-        android:paddingLeft="10dp"
-        android:background="@drawable/button_selector_white"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="View Available Courses"
-        android:textSize="20dp"/>
-
     </RelativeLayout>
 
 </ScrollView>

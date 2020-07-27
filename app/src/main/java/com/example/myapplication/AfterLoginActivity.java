@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 public class AfterLoginActivity extends AppCompatActivity {
-    Button callNum, sendSMS, sendEmail, sendWhatsapp, openWebview, openList;
+    Button callNum, sendSMS, sendEmail, sendWhatsapp, openWebview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,6 @@ public class AfterLoginActivity extends AppCompatActivity {
         sendEmail=findViewById(R.id.send_email);
         sendWhatsapp=findViewById(R.id.whatsapp_sms);
         openWebview=findViewById(R.id.open_web_view);
-        openList=findViewById(R.id.open_list_view);
 
         callNum.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,19 +31,35 @@ public class AfterLoginActivity extends AppCompatActivity {
             }
         });
 
+        sendSMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent smsIntent = new Intent(getApplicationContext(), MessageActivity.class);
+                startActivity(smsIntent);
+            }
+        });
+
+        sendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent emailIntent = new Intent(getApplicationContext(), EmailActivity.class);
+                startActivity(emailIntent);
+            }
+        });
+
+        sendWhatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent whatsappIntent = new Intent(getApplicationContext(), WhatsAppActivity.class);
+                startActivity(whatsappIntent);
+            }
+        });
+
         openWebview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent webIntent = new Intent(getApplicationContext(), WebViewActivity.class);
                 startActivity(webIntent);
-            }
-        });
-
-        openList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent listIntent = new Intent(getApplicationContext(), ListViewActivity.class);
-                startActivity(listIntent);
             }
         });
     }

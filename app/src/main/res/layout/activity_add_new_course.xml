@@ -1,9 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/navy"
+    android:id="@+id/scroller"
     tools:context=".AddNewCourse">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/the_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/logo"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Add New Course"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/txt_course_code"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_container"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Course Code: "
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_course_code"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_course_code"
+            android:textSize="25dp"
+            android:maxLength="5"
+            android:hint="Enter Course Code Here"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/curved_view"/>
+
+        <TextView
+            android:id="@+id/txt_course_name"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_course_code"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Course Name: "
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_course_name"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_course_name"
+            android:textSize="25dp"
+            android:hint="Enter Course Name Here"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/curved_view"/>
+
+        <TextView
+            android:id="@+id/txt_course_description"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_course_name"
+            android:text="Course Description: "
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_course_description"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/txt_course_description"
+            android:textSize="25dp"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Enter A Brief Description About Course"
+            android:background="@drawable/curved_view"
+            android:minLines="3"/>
+
+        <TextView
+            android:id="@+id/txt_semester"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_course_description"
+            android:text="Semester: "
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_semester"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/txt_semester"
+            android:textSize="25dp"
+            android:hint="Course Offered in Semester?"
+            android:inputType="number"
+            android:fontFamily="sans-serif-condensed"
+            android:maxLength="1"
+            android:background="@drawable/curved_view"/>
+
+        <TextView
+            android:id="@+id/txt_prerequisites"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_semester"
+            android:text="Course Prerequisites: "
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_prerequisites"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_prerequisites"
+            android:textSize="25dp"
+            android:hint="Enter Prerequisites of Course"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/curved_view"/>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_prerequisites"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="25dp"
+            android:background="@drawable/button_selector1"
+            android:text="Submit"/>
+
+    </RelativeLayout>
+
+</ScrollView>

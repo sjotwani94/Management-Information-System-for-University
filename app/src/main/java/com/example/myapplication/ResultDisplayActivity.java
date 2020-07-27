@@ -73,7 +73,9 @@ public class ResultDisplayActivity extends AppCompatActivity {
             }else {
                 courseGrade.add("F");
             }
+            cursor.moveToNext();
         }
+        cursor.close();
 
         recyclerView = findViewById(R.id.recycler_functions);
         for (int len=0;len<courseDesc.size();len++){
@@ -81,7 +83,7 @@ public class ResultDisplayActivity extends AppCompatActivity {
         }
         adapter = new RecyclerListAdapter(functionsList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }

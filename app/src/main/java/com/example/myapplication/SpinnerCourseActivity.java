@@ -91,12 +91,17 @@ public class SpinnerCourseActivity extends AppCompatActivity {
             }
         });
 
-        long result = dbHelper.saveStudentCourseDetails(selectedRollNo,selectedCourse);
-        if (result>0){
-            Toast.makeText(this, "Enrollment Successful", Toast.LENGTH_LONG).show();
-        }
-        else {
-            Toast.makeText(this, "Some Technical Errors", Toast.LENGTH_LONG).show();
-        }
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                long result = dbHelper.saveStudentCourseDetails(selectedRollNo,selectedCourse);
+                if (result>0){
+                    Toast.makeText(getApplicationContext(), "Enrollment Successful", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Some Technical Errors", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 }

@@ -1,9 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/navy"
     tools:context=".AttendanceDisplayActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/content_credentials"
+        android:layout_width="380dp"
+        android:layout_height="210dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/button_selector_white">
+
+        <TextView
+            android:id="@+id/txt_roll_num"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="10dp"
+            android:text="Roll No.:"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <TextView
+            android:id="@+id/edt_roll_num"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txt_roll_num"
+            android:layout_marginTop="100dp"
+            android:text="Student's Roll No"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <TextView
+            android:id="@+id/txt_student_name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/txt_roll_num"
+            android:text="Student Name:"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <TextView
+            android:id="@+id/edt_student_name"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txt_student_name"
+            android:layout_below="@+id/txt_roll_num"
+            android:layout_marginTop="10dp"
+            android:text="Student's Name"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <TextView
+            android:id="@+id/txt_semester_no"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/txt_student_name"
+            android:text="Attendance for Semester:"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <TextView
+            android:id="@+id/edt_semester_no"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txt_semester_no"
+            android:layout_below="@+id/txt_student_name"
+            android:layout_marginTop="10dp"
+            android:text="Semester Number"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/security"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher_account"
+        android:paddingVertical="10dp"
+        android:background="@drawable/icon_background"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/content_credentials"
+        android:layout_marginBottom="-130dp"/>
+
+    <TextView
+        android:id="@+id/degree_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B. Tech. in (Department Name)"
+        android:layout_below="@+id/security"
+        android:layout_marginTop="130dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_functions"
+        android:layout_below="@+id/content_credentials"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="380dp"
+        android:layout_height="380dp"/>
+
+</RelativeLayout>

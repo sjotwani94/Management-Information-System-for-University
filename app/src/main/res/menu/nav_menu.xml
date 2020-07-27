@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/logout"
+        android:icon="@drawable/ic_exit_to_app_black_36dp"
+        android:title="Logout"/>
+    <item android:id="@+id/go_to_web"
+        android:icon="@drawable/ic_web_darkgreen_36dp"
+        android:title="Visit University Website"/>
+    <item android:id="@+id/visit_contact"
+        android:icon="@drawable/ic_person_blue_36dp"
+        android:title="Reach Out to Someone"/>
+
 </menu>

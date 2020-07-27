@@ -1,9 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/navy"
     tools:context=".UpdateResultActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/content_credentials"
+        android:layout_width="380dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/button_selector_white">
+
+        <TextView
+            android:id="@+id/txt_courses"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_centerHorizontal="true"
+            android:text="Select Course Code.:"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <Spinner
+            android:id="@+id/list_courses"
+            android:layout_below="@id/txt_courses"
+            android:layout_centerHorizontal="true"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:spinnerMode="dropdown"
+            style="@style/Widget.AppCompat.DropDownItem.Spinner"/>
+
+        <TextView
+            android:id="@+id/txt_roll_nos"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/list_courses"
+            android:text="Select Student's Roll No.:"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <Spinner
+            android:id="@+id/list_roll_nos"
+            android:layout_below="@id/txt_roll_nos"
+            android:layout_centerHorizontal="true"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:spinnerMode="dropdown"
+            style="@style/Widget.AppCompat.DropDownItem.Spinner"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/security"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher_account"
+        android:paddingVertical="10dp"
+        android:background="@drawable/icon_background"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/content_credentials"
+        android:layout_marginBottom="-130dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Student's Result"
+        android:layout_below="@+id/security"
+        android:layout_marginTop="130dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:id="@+id/internal_marks"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content_credentials"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_class_test"
+                android:layout_width="160dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/content_credentials"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Class Test Marks: "
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/txt_mid_sem"
+                android:layout_width="160dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Mid Sem Exam Marks: "
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edt_class_test"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:textSize="25dp"
+                android:inputType="number"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/curved_view"/>
+
+            <EditText
+                android:id="@+id/edt_mid_sem"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="25dp"
+                android:inputType="number"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/curved_view"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/other_internal_marks"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/internal_marks"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_assignment"
+                android:layout_width="160dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/content_credentials"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Assignments' Marks: "
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/txt_lab_prac"
+                android:layout_width="160dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Laboratory Practicals: "
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edt_assignment"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:textSize="25dp"
+                android:inputType="number"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/curved_view"/>
+
+            <EditText
+                android:id="@+id/edt_lab_prac"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="25dp"
+                android:inputType="number"
+                android:fontFamily="sans-serif-condensed"
+                android:background="@drawable/curved_view"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/final_exam"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/other_internal_marks"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_final_exam"
+            android:layout_width="240dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/content_credentials"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Final Exam Marks: "
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_final_exam"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:textSize="25dp"
+            android:inputType="number"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/curved_view"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/final_exam"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fetch_course"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Fetch"
+            android:textColor="@color/black"
+            android:layout_marginTop="40dp"
+            android:textSize="25dp"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/button_selector"/>
+        <Button
+            android:id="@+id/submit_course"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textColor="@color/black"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/button_selector1"/>
+
+    </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
