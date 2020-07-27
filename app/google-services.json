@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "334572227434",
+    "firebase_url": "https://mis-for-university.firebaseio.com",
+    "project_id": "mis-for-university",
+    "storage_bucket": "mis-for-university.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334572227434:android:aafd81d848124211c3b313",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334572227434-ai2khie7jk5rovta3lusrtqt9oak45kr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "c9261e6a21baa61ba4069b911e006127c6756530"
+          }
+        },
+        {
+          "client_id": "334572227434-030dahgn6giqholfubnfa72ua714nng9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtEU4VLZ-KriXPslzL0I0zBtCRUB2kcrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334572227434-030dahgn6giqholfubnfa72ua714nng9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

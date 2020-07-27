@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/set_theme"
+        android:title="Change Theme">
+
+        <menu>
+            <item android:id="@+id/light_theme"
+                android:title="Set Light Theme"
+                android:icon="@drawable/ic_crop_portrait_grey_24dp"/>
+            <item android:id="@+id/dark_theme"
+                android:title="Set Dark Theme"
+                android:icon="@drawable/ic_crop_portrait_black_24dp"/>
+        </menu>
+
+    </item>
+    <item android:id="@+id/exit"
+        android:title="Exit"
+        android:icon="@drawable/ic_exit_to_app_black_36dp"/>
+</menu>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Sids Voting App</string>
+    <string name="candidate_name">Candidate\'s Name</string>
+    <string name="candidate_detail">Candidate\'s Details</string>
+    <string name="education_qualification">Education Qualification</string>
+    <string name="past_records">Past Records</string>
+    <string name="narendra_modi">Narendra Modi</string>
+    <string name="details_modi">Age: 69</string>
+    <string name="edu_qual">Delhi University Graduate</string>
+    <string name="edu_quali">Delhi University Graduate</string>
+    <string name="bjp_leader">C.M. of Gujarat (till 2014)</string>
+    <string name="amit_shah">Amit Shah</string>
+    <string name="details_amit">Age: 72</string>
+    <string name="bjp_presi">BJP President</string>
+    <string name="student_marks">Student\'s Marks</string>
+    <string name="bjp_short">BJP</string>
+    <string name="bjp_long">Bharatiya Janta Party</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

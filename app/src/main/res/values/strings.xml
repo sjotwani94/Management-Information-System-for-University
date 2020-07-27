@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">MIS for University</string>
+    <string name="candidate_name">Name</string>
+    <string name="candidate_detail">Personal Details</string>
+    <string name="education_qualification">Education Qualification</string>
+    <string name="past_records">Past Records</string>
+    <string name="narendra_modi">Narendra Modi</string>
+    <string name="details_modi">Age: 69</string>
+    <string name="edu_qual">Currently Pursuing B.Tech.</string>
+    <string name="edu_quali">Delhi University Graduate</string>
+    <string name="bjp_leader">C.M. of Gujarat (till 2014)</string>
+    <string name="siddharth">Siddharth Jotwani</string>
+    <string name="details_amit">Age: 21</string>
+    <string name="bjp_presi">BJP President</string>
+    <string name="student_marks">Student\'s Marks</string>
+    <string name="nim_short">ITNU</string>
+    <string name="nim_long">Nirma University</string>
+    <string name="title_activity_admin_home_page">AdminHomePageActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+    <string-array name="department">
+        <item>Computer Engineering</item>
+        <item>Information Technology</item>
+        <item>Electrical Engineering</item>
+        <item>Electronics &amp; Communications</item>
+        <item>Mechanical Engineering</item>
+        <item>Instrumentation &amp; Control</item>
+        <item>Civil Engineering</item>
+        <item>Chemical Engineering</item>
+    </string-array>
+    <string-array name="position">
+        <item>Dean</item>
+        <item>HOD</item>
+        <item>Professor</item>
+        <item>Associate Professor</item>
+        <item>Assistant Professor</item>
+    </string-array>
+    <string-array name="roles">
+        <item>Admin</item>
+        <item>Faculty</item>
+        <item>Student</item>
+    </string-array>
+</resources>

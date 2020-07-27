@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/setback"
+        android:title="Set Another Background">
+
+        <menu>
+            <item android:id="@+id/camera"
+                android:title="Capture From Camera"
+                android:icon="@drawable/ic_photo_camera_black_24dp"/>
+            <item android:id="@+id/gallery"
+                android:title="Set From Gallery"
+                android:icon="@drawable/ic_insert_drive_file_black_24dp"/>
+        </menu>
+    </item>
+    <item android:id="@+id/open_calc"
+        android:title="Open Calculator" />
+    <item android:id="@+id/change_theme"
+        android:title="Change Theme" />
+    <item android:id="@+id/exit"
+        android:title="Exit"
+        android:icon="@drawable/ic_exit_to_app_black_36dp"/>
+</menu>
