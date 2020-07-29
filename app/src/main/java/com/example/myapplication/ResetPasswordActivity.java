@@ -40,7 +40,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                         boolean result = dbHelper.resetPassword(Email,Position,pass.getText().toString());
                         Log.d("Result", "Query Updation: "+result);
                         if (result){
-                            Toast.makeText(ResetPasswordActivity.this, "Password Rest Successful!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ResetPasswordActivity.this, "Password Reset Successful!", Toast.LENGTH_LONG).show();
                             Bundle bundle = new Bundle();
                             bundle.putString("Email",Email);
                             bundle.putString("Position",Position);
@@ -50,6 +50,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                                 Intent intent = new Intent(ResetPasswordActivity.this,FacultyHomePage.class);
                                 intent.putExtras(bundle);
                                 startActivity(intent);
+                                finish();
                             }
                             else if (Position.matches("Student")){
                                 Intent intent = new Intent(ResetPasswordActivity.this,StudentHomePage.class);
@@ -57,6 +58,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                                 bundle.putInt("YearOfPass",getIntent().getExtras().getInt("YearOfPass"));
                                 intent.putExtras(bundle);
                                 startActivity(intent);
+                                finish();
                             }
                         }
                     }

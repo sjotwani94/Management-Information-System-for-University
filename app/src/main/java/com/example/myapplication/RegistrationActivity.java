@@ -78,7 +78,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         LayoutInflater li1=getLayoutInflater();
                         View layout=li1.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.custom_toast_layout));
                         TextView txt= (TextView) layout.findViewById(R.id.text_toast);
-                        txt.setText("Oh Yeah!, Registration Successful!");
+                        txt.setText("Registered Successfully as Admin!");
 
                         String Name = name.getText().toString();
                         String EMail = email.getText().toString();
@@ -102,6 +102,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             toast.setView(layout);
                             toast.show();
                             startActivity(int1);
+                            finish();
                         }else {
                             Toast.makeText(RegistrationActivity.this, "No Rows Inserted", Toast.LENGTH_SHORT).show();
                         }

@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:id="@+id/custom_toast_layout"
-    android:background="@drawable/button_selector5"
+    android:background="#0066FF"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
-        android:src="@drawable/tickmark"
-        android:layout_width="250dp"
+        android:src="@drawable/greentick"
+        android:layout_width="200dp"
         android:layout_height="250dp"
         android:layout_gravity="center"/>
 
@@ -17,6 +17,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:paddingHorizontal="5dp"
+        android:textSize="15dp"
+        android:fontFamily="sans-serif-condensed"
         android:textColor="#000000"/>
 
 </LinearLayout>

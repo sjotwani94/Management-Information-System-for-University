@@ -52,6 +52,7 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),AddNewCourse.class);
                 startActivity(intent);
+                finish();
             }
         });
         searchCourse=findViewById(R.id.search_course);

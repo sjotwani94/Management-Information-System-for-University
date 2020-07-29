@@ -96,7 +96,7 @@ public class FacultyRegistration extends AppCompatActivity implements DatePicker
                     LayoutInflater li1=getLayoutInflater();
                     View layout=li1.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.custom_toast_layout));
                     TextView txt= (TextView) layout.findViewById(R.id.text_toast);
-                    txt.setText("Oh Yeah!, Registration Successful!");
+                    txt.setText("Faculty Registered Successfully!");
 
                     String Name = name.getText().toString();
                     String EMail = email.getText().toString();
@@ -123,6 +123,7 @@ public class FacultyRegistration extends AppCompatActivity implements DatePicker
                         toast.show();
                         int1.putExtras(bundle);
                         startActivity(int1);
+                        finish();
                     }else {
                         Toast.makeText(FacultyRegistration.this, "No Rows Inserted", Toast.LENGTH_SHORT).show();
                     }
