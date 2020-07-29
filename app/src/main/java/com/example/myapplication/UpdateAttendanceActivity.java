@@ -61,7 +61,7 @@ public class UpdateAttendanceActivity extends AppCompatActivity implements Adapt
                 String rollno = rollNum.getSelectedItem().toString();
                 String coursecode = courseCode.getSelectedItem().toString().substring(0,5);
                 int result = dbHelper.updateAttendance(rollno,coursecode,totalpresent,totallectures);
-                Toast.makeText(UpdateAttendanceActivity.this, "Marks Updated Successfully!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateAttendanceActivity.this, "Attendance Updated Successfully!", Toast.LENGTH_SHORT).show();
             }
         });
         fetch.setOnClickListener(new View.OnClickListener() {

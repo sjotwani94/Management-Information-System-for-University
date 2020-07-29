@@ -147,6 +147,7 @@ public class FacultyRegistration extends AppCompatActivity implements DatePicker
                 break;
             case R.id.light_theme:
                 s1.setBackgroundResource(R.drawable.navy);
+                break;
             case R.id.exit:
                 System.exit(0);
                 break;

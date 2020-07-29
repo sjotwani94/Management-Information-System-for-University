@@ -130,6 +130,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 break;
             case R.id.light_theme:
                 s1.setBackgroundResource(R.drawable.navy);
+                break;
             case R.id.exit:
                 System.exit(0);
                 break;

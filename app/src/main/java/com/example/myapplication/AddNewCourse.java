@@ -40,9 +40,10 @@ public class AddNewCourse extends AppCompatActivity {
                         Toast.makeText(AddNewCourse.this, "Course Added Successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),ListViewActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                     else {
-                        Toast.makeText(AddNewCourse.this, "No Entry Inserted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddNewCourse.this, "Redundancy Not Allowed!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

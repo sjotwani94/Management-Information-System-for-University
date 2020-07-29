@@ -2,16 +2,19 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +29,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import java.io.FileDescriptor;
@@ -34,8 +38,9 @@ import java.io.IOException;
 public class RelativeLoginActivity extends AppCompatActivity {
     Button b1,b2;
     EditText e1,e2;
-    RelativeLayout mainLayout;
+    ScrollView mainLayout;
     DBHelper dbHelper;
+    Drawable drawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,7 @@ public class RelativeLoginActivity extends AppCompatActivity {
         e2=findViewById(R.id.edt_pwd);
         dbHelper = new DBHelper(this);
         mainLayout=findViewById(R.id.main_layout);
+        drawable = mainLayout.getBackground();
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +88,7 @@ public class RelativeLoginActivity extends AppCompatActivity {
                         bundle.putString("Name",name);
                         adminIntent.putExtras(bundle);
                         startActivity(adminIntent);
+                        finish();
                     }
                     else if(result1){
                         Toast.makeText(RelativeLoginActivity.this, "Logged In...", Toast.LENGTH_SHORT).show();
@@ -125,6 +132,7 @@ public class RelativeLoginActivity extends AppCompatActivity {
                             bundle.putString("Department",department);
                             facultyIntent.putExtras(bundle);
                             startActivity(facultyIntent);
+                            finish();
                         }
                     }
                     else if (result2){
@@ -181,6 +189,7 @@ public class RelativeLoginActivity extends AppCompatActivity {
                             bundle.putString("Password",password);
                             studentIntent.putExtras(bundle);
                             startActivity(studentIntent);
+                            finish();
                         }
                     }
                     else {
@@ -197,6 +206,29 @@ public class RelativeLoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Exit From App");
+        dialog.setMessage("Do You really want to exit from the application?");
+        dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                System.exit(0);
+            }
+        });
+
+        dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                onResume();
+            }
+        });
+        dialog.show();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater mi = getMenuInflater();
@@ -222,8 +254,13 @@ public class RelativeLoginActivity extends AppCompatActivity {
                 startActivity(intent1);
                 break;
             case R.id.change_theme:
-                Intent themeIntent = new Intent(getApplicationContext(), RelativeLoginActivity.class);
-                startActivity(themeIntent);
+                if (drawable.getConstantState()==getResources().getDrawable(R.drawable.navy).getConstantState()){
+                    mainLayout.setBackgroundResource(R.drawable.blackcar);
+                    drawable = mainLayout.getBackground();
+                } else {
+                    mainLayout.setBackgroundResource(R.drawable.navy);
+                    drawable = mainLayout.getBackground();
+                }
                 break;
             case R.id.exit:
                 System.exit(0);

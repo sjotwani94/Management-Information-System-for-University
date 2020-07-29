@@ -93,8 +93,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 COLUMN7 + " TEXT);";
         String sql3 = "CREATE TABLE " + COURSE_DETAILS + " (" +
                 COL_INDEX + " INTEGER PRIMARY KEY, " +
-                COURSE_COLUMN1 + " TEXT, " +
-                COURSE_COLUMN2 + " TEXT, " +
+                COURSE_COLUMN1 + " TEXT UNIQUE, " +
+                COURSE_COLUMN2 + " TEXT UNIQUE, " +
                 COURSE_COLUMN3 + " TEXT, " +
                 COURSE_COLUMN4 + " INTEGER, " +
                 COURSE_COLUMN5 + " TEXT);";
@@ -316,10 +316,13 @@ public class DBHelper extends SQLiteOpenHelper {
     public boolean removeCourse(String rowIndex) {
         db = getWritableDatabase();
         int result = db.delete(COURSE_DETAILS,
-                COURSE_COLUMN1+" = "+rowIndex,
-                null);
+                COURSE_COLUMN1+" = ?",
+                new String[]{rowIndex});
+        int result1 = db.delete(STUDENT_ENROLLED_COURSES,
+                STUD_COURSE_1+" = ?",
+                new String[]{rowIndex});
         db.close();
-        if (result>0)
+        if (result>0 && result1>0)
         {
             return true;
         }

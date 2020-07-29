@@ -3,9 +3,11 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -121,6 +123,31 @@ public class FacultyHomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Logout");
+        dialog.setMessage("Do You really want to logout from the application?");
+        dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent1 = new Intent(FacultyHomePage.this, RelativeLoginActivity.class);
+                startActivity(intent1);
+                Toast.makeText(FacultyHomePage.this, "Logged Out",Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+        dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                onResume();
+            }
+        });
+        dialog.show();
     }
 
     @Override
