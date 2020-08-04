@@ -1,11 +1,20 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Html;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -24,16 +33,34 @@ public class ResultDisplayActivity extends AppCompatActivity {
     List<String> courseDesc = new ArrayList<String>();
     List<String> courseMarks = new ArrayList<String>();
     List<String> courseGrade = new ArrayList<String>();
+    RelativeLayout s1;
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mypref";
+    public static final String Email = "emailKey";
+    public static final String Theme = "themeKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_display);
+        s1 = findViewById(R.id.scroller);
         department=findViewById(R.id.degree_name);
         rollNo=findViewById(R.id.edt_roll_num);
         studentName=findViewById(R.id.edt_student_name);
         semesterNo=findViewById(R.id.edt_semester_no);
         dbHelper=new DBHelper(this);
+        sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
+        if (sharedpreferences.contains(Theme)){
+            if (sharedpreferences.getString(Theme,"").matches("Light")){
+                s1.setBackgroundResource(R.drawable.navy);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+            }else if (sharedpreferences.getString(Theme,"").matches("Dark")){
+                s1.setBackgroundResource(R.drawable.blackcar);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+            }
+        }
         String Name = getIntent().getExtras().getString("Name");
         String Department = getIntent().getExtras().getString("Department");
         String RollNo = getIntent().getExtras().getString("RollNo");
@@ -81,10 +108,43 @@ public class ResultDisplayActivity extends AppCompatActivity {
         for (int len=0;len<courseDesc.size();len++){
             functionsList.add(new RecyclerListData(courseDesc.get(len),courseMarks.get(len),courseGrade.get(len)));
         }
-        adapter = new RecyclerListAdapter(functionsList);
+        adapter = new RecyclerListAdapter(functionsList,this, RollNo);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mi = getMenuInflater();
+        mi.inflate(R.menu.menu_items1,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.dark_theme:
+                s1.setBackgroundResource(R.drawable.blackcar);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+                editor.putString(Theme, "Dark");
+                editor.commit();
+                break;
+            case R.id.light_theme:
+                s1.setBackgroundResource(R.drawable.navy);
+                SharedPreferences.Editor editor1 = sharedpreferences.edit();
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+                editor1.putString(Theme, "Light");
+                editor1.commit();
+                break;
+            case R.id.exit:
+                System.exit(0);
+                break;
+        }
+        return true;
     }
 }

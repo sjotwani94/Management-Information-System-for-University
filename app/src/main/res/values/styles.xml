@@ -3,6 +3,7 @@
     <!-- Define your colors in `res/values/colors.xml` -->
     <color name="simple_yellow">#193EE0</color>
     <color name="primary_blue">#FFFFFF</color>
+    <color name="simple_black">#111111</color>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>

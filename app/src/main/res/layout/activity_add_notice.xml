@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/navy"
+    android:id="@+id/scroller"
+    android:fillViewport="true"
     tools:context=".AddNoticeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/content_credentials"
@@ -86,4 +92,6 @@
         android:fontFamily="sans-serif-condensed"
         android:background="@drawable/button_selector1"/>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

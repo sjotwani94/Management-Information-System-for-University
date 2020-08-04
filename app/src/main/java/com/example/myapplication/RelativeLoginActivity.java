@@ -7,19 +7,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,6 +45,10 @@ public class RelativeLoginActivity extends AppCompatActivity {
     ScrollView mainLayout;
     DBHelper dbHelper;
     Drawable drawable;
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mypref";
+    public static final String Email = "emailKey";
+    public static final String Theme = "themeKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +62,24 @@ public class RelativeLoginActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         mainLayout=findViewById(R.id.main_layout);
         drawable = mainLayout.getBackground();
+        sharedpreferences = getSharedPreferences(mypreference,Context.MODE_PRIVATE);
+        if(sharedpreferences.contains(Email))
+        {
+            e1.setText(sharedpreferences.getString(Email, ""));
+        }
+        if (sharedpreferences.contains(Theme)){
+            if (sharedpreferences.getString(Theme,"").matches("Light")){
+                mainLayout.setBackgroundResource(R.drawable.navy);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+                drawable = mainLayout.getBackground();
+            }else if (sharedpreferences.getString(Theme,"").matches("Dark")){
+                mainLayout.setBackgroundResource(R.drawable.blackcar);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+                drawable = mainLayout.getBackground();
+            }
+        }
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +113,9 @@ public class RelativeLoginActivity extends AppCompatActivity {
                         bundle.putString("Password",password);
                         bundle.putString("Name",name);
                         adminIntent.putExtras(bundle);
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString(Email, email);
+                        editor.commit();
                         startActivity(adminIntent);
                         finish();
                     }
@@ -111,7 +140,11 @@ public class RelativeLoginActivity extends AppCompatActivity {
                             bundle.putString("Name",name);
                             bundle.putString("Department",department);
                             facultyIntent.putExtras(bundle);
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                            editor.putString(Email, email);
+                            editor.commit();
                             startActivity(facultyIntent);
+                            finish();
                         }else {
                             Intent facultyIntent = new Intent(RelativeLoginActivity.this, FacultyHomePage.class);
                             Bundle bundle = new Bundle();
@@ -131,6 +164,9 @@ public class RelativeLoginActivity extends AppCompatActivity {
                             bundle.putString("Name",name);
                             bundle.putString("Department",department);
                             facultyIntent.putExtras(bundle);
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                            editor.putString(Email, email);
+                            editor.commit();
                             startActivity(facultyIntent);
                             finish();
                         }
@@ -162,7 +198,11 @@ public class RelativeLoginActivity extends AppCompatActivity {
                             bundle.putString("Email",email);
                             bundle.putString("Password",password);
                             studentIntent.putExtras(bundle);
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                            editor.putString(Email, email);
+                            editor.commit();
                             startActivity(studentIntent);
+                            finish();
                         }else {
                             Intent studentIntent = new Intent(RelativeLoginActivity.this, StudentHomePage.class);
                             Bundle bundle = new Bundle();
@@ -188,6 +228,9 @@ public class RelativeLoginActivity extends AppCompatActivity {
                             bundle.putString("Email",email);
                             bundle.putString("Password",password);
                             studentIntent.putExtras(bundle);
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                            editor.putString(Email, email);
+                            editor.commit();
                             startActivity(studentIntent);
                             finish();
                         }
@@ -257,9 +300,19 @@ public class RelativeLoginActivity extends AppCompatActivity {
                 if (drawable.getConstantState()==getResources().getDrawable(R.drawable.navy).getConstantState()){
                     mainLayout.setBackgroundResource(R.drawable.blackcar);
                     drawable = mainLayout.getBackground();
+                    getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                    getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString(Theme, "Dark");
+                    editor.commit();
                 } else {
                     mainLayout.setBackgroundResource(R.drawable.navy);
                     drawable = mainLayout.getBackground();
+                    getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                    getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString(Theme, "Light");
+                    editor.commit();
                 }
                 break;
             case R.id.exit:

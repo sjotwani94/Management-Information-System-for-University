@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/navy"
     android:orientation="vertical"
+    android:id="@+id/scroller"
     tools:context=".WebViewActivity">
 
     <LinearLayout

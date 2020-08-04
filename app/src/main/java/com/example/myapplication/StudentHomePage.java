@@ -8,14 +8,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +35,12 @@ public class StudentHomePage extends AppCompatActivity {
     private NavigationView nv;
     Button viewMarks, viewAttendance, viewNotices;
     private ProgressDialog progress;
+    ScrollView s1;
+    LinearLayout nav_user;
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mypref";
+    public static final String Email = "emailKey";
+    public static final String Theme = "themeKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +61,8 @@ public class StudentHomePage extends AppCompatActivity {
         t.syncState();
 
         nv = (NavigationView)findViewById(R.id.navigation_view);
+        View hView =  nv.getHeaderView(0);
+        nav_user = (LinearLayout) hView.findViewById(R.id.nav_layout);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -76,6 +92,21 @@ public class StudentHomePage extends AppCompatActivity {
                 return true;
             }
         });
+        sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
+        s1 = findViewById(R.id.scroller);
+        if (sharedpreferences.contains(Theme)){
+            if (sharedpreferences.getString(Theme,"").matches("Light")){
+                s1.setBackgroundResource(R.drawable.navy);
+                nav_user.setBackgroundColor(getResources().getColor(R.color.simple_yellow));
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+            }else if (sharedpreferences.getString(Theme,"").matches("Dark")){
+                s1.setBackgroundResource(R.drawable.blackcar);
+                nav_user.setBackgroundColor(getResources().getColor(R.color.simple_black));
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+            }
+        }
         viewMarks=findViewById(R.id.student_result);
         viewAttendance=findViewById(R.id.student_attendance);
         viewNotices=findViewById(R.id.view_notices);
@@ -211,11 +242,41 @@ public class StudentHomePage extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mi = getMenuInflater();
+        mi.inflate(R.menu.menu_items1,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if(t.onOptionsItemSelected(item))
             return true;
 
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.dark_theme:
+                s1.setBackgroundResource(R.drawable.blackcar);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+                editor.putString(Theme, "Dark");
+                editor.commit();
+                nav_user.setBackgroundColor(getResources().getColor(R.color.simple_black));
+                break;
+            case R.id.light_theme:
+                s1.setBackgroundResource(R.drawable.navy);
+                SharedPreferences.Editor editor1 = sharedpreferences.edit();
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+                editor1.putString(Theme, "Light");
+                editor1.commit();
+                nav_user.setBackgroundColor(getResources().getColor(R.color.simple_yellow));
+                break;
+            case R.id.exit:
+                System.exit(0);
+                break;
+        }
+        return true;
     }
 }

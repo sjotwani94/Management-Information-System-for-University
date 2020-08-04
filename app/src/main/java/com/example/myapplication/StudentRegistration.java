@@ -3,8 +3,12 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,6 +36,10 @@ public class StudentRegistration extends AppCompatActivity {
     RadioButton ge1,ge2;
     DBHelper dbHelper;
     String[] departments;
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mypref";
+    public static final String Email = "emailKey";
+    public static final String Theme = "themeKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +61,18 @@ public class StudentRegistration extends AppCompatActivity {
         ge1=findViewById(R.id.rb_male);
         ge2=findViewById(R.id.rb_female);
         dbHelper=new DBHelper(this);
+        sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
+        if (sharedpreferences.contains(Theme)){
+            if (sharedpreferences.getString(Theme,"").matches("Light")){
+                s1.setBackgroundResource(R.drawable.navy);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+            }else if (sharedpreferences.getString(Theme,"").matches("Dark")){
+                s1.setBackgroundResource(R.drawable.blackcar);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+            }
+        }
         departments=getResources().getStringArray(R.array.department);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, departments);
@@ -124,9 +144,19 @@ public class StudentRegistration extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.dark_theme:
                 s1.setBackgroundResource(R.drawable.blackcar);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+                editor.putString(Theme, "Dark");
+                editor.commit();
                 break;
             case R.id.light_theme:
                 s1.setBackgroundResource(R.drawable.navy);
+                SharedPreferences.Editor editor1 = sharedpreferences.edit();
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+                editor1.putString(Theme, "Light");
+                editor1.commit();
                 break;
             case R.id.exit:
                 System.exit(0);
@@ -147,9 +177,19 @@ public class StudentRegistration extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.dark_theme:
                 s1.setBackgroundResource(R.drawable.blackcar);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+                editor.putString(Theme, "Dark");
+                editor.commit();
                 break;
             case R.id.light_theme:
                 s1.setBackgroundResource(R.drawable.navy);
+                SharedPreferences.Editor editor1 = sharedpreferences.edit();
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+                editor1.putString(Theme, "Light");
+                editor1.commit();
                 break;
             case R.id.exit:
                 System.exit(0);
