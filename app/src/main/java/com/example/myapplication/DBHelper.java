@@ -131,6 +131,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS '"+ STUDENT_DETAILS+"'");
         db.execSQL("DROP TABLE IF EXISTS '"+ COURSE_DETAILS+"'");
         db.execSQL("DROP TABLE IF EXISTS '"+ STUDENT_ENROLLED_COURSES+"'");
+        db.execSQL("DROP TABLE IF EXISTS '"+ NOTICES_DETAILS+"'");
         onCreate(db);
     }
 
@@ -198,6 +199,95 @@ public class DBHelper extends SQLiteOpenHelper {
         long rowCount = db.insert(STUDENT_DETAILS,null,contentValues);
         db.close();
         return rowCount;
+    }
+
+    public long updateFacultyRegistrationDetails(long rowIndex, String name, String email, String address, int age, long contactno, String gender, String department, String position, String joindate){
+        db = getWritableDatabase();
+        ContentValues updateValues = new ContentValues();
+        updateValues.put(COLUMN1,name);
+        updateValues.put(COLUMN2,email);
+        updateValues.put(COLUMN3,address);
+        updateValues.put(COLUMN4,age);
+        updateValues.put(COLUMN5,contactno);
+        updateValues.put(COLUMN6,gender);
+        updateValues.put(FAC_COLUMN1,department);
+        updateValues.put(FAC_COLUMN2,position);
+        updateValues.put(FAC_COLUMN3,joindate);
+        return db.update(FACULTY_DETAILS, updateValues,
+                COL_INDEX+" = "+rowIndex,
+                null);
+    }
+
+    public long updateStudentRegistrationDetails(long rowIndex, String name, String email, String address, int age, long contactno, String gender, String department, String rollno, long batch){
+        db = getWritableDatabase();
+        ContentValues updateValues = new ContentValues();
+        updateValues.put(COLUMN1,name);
+        updateValues.put(COLUMN2,email);
+        updateValues.put(COLUMN3,address);
+        updateValues.put(COLUMN4,age);
+        updateValues.put(COLUMN5,contactno);
+        updateValues.put(COLUMN6,gender);
+        updateValues.put(FAC_COLUMN1,department);
+        updateValues.put(STUD_COLUMN1,rollno);
+        updateValues.put(STUD_COLUMN2,batch);
+        return db.update(STUDENT_DETAILS, updateValues,
+                COL_INDEX+" = "+rowIndex,
+                null);
+    }
+
+    public Cursor getFacultyRegistrationDetails(String email) {
+        db = getReadableDatabase();
+        return db.query(FACULTY_DETAILS,
+                new String[]{COL_INDEX,COLUMN1,COLUMN2,COLUMN3,COLUMN4,COLUMN5,COLUMN6,FAC_COLUMN1,FAC_COLUMN2,FAC_COLUMN3,COLUMN7},
+                COLUMN2 + " = ?",
+                new String[] { String.valueOf(email) },
+                null, null, null);
+    }
+
+    public Cursor getFacultyRegistrationDetail() {
+        db = getReadableDatabase();
+        return db.query(FACULTY_DETAILS,
+                new String[]{COL_INDEX,COLUMN1,COLUMN2,COLUMN3,COLUMN4,COLUMN5,COLUMN6,FAC_COLUMN1,FAC_COLUMN2,FAC_COLUMN3,COLUMN7},
+                null, null,
+                null, null, null);
+    }
+
+    public Cursor getStudentRegistrationDetails(String email) {
+        db = getReadableDatabase();
+        return db.query(STUDENT_DETAILS,
+                new String[]{COL_INDEX,COLUMN1,COLUMN2,COLUMN3,COLUMN4,COLUMN5,COLUMN6,FAC_COLUMN1,STUD_COLUMN1,STUD_COLUMN2,COLUMN7},
+                COLUMN2 + " = ?",
+                new String[] { String.valueOf(email) },
+                null, null, null);
+    }
+
+    public Cursor getStudentRegistrationDetail() {
+        db = getReadableDatabase();
+        return db.query(STUDENT_DETAILS,
+                new String[]{COL_INDEX,COLUMN1,COLUMN2,COLUMN3,COLUMN4,COLUMN5,COLUMN6,FAC_COLUMN1,STUD_COLUMN1,STUD_COLUMN2,COLUMN7},
+                null, null,
+                null, null, null);
+    }
+
+    public boolean removeFacultyEntry(long rowIndex) {
+        db = getWritableDatabase();
+        return db.delete(FACULTY_DETAILS,
+                COL_INDEX+" = "+rowIndex,
+                null)>0;
+    }
+
+    public boolean removeStudentEntry(long rowIndex) {
+        db = getWritableDatabase();
+        return db.delete(STUDENT_DETAILS,
+                COL_INDEX+" = "+rowIndex,
+                null)>0;
+    }
+
+    public boolean removeAdminEntry(String Email) {
+        db = getWritableDatabase();
+        return db.delete(TABLE_NAME,
+                COLUMN2+" = ?",
+                new String[]{Email})>0;
     }
 
     public Cursor getStudentRollNo(){

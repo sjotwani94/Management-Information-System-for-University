@@ -36,6 +36,7 @@ public class AdminHomePage extends AppCompatActivity {
     ScrollView s1;
     LinearLayout nav_user;
     Button facultyReg,studentReg,viewCourses,addCourse,viewNotices,addNotice;
+    DBHelper dbHelper;
     SharedPreferences sharedpreferences;
     public static final String mypreference = "mypref";
     public static final String Email = "emailKey";
@@ -62,6 +63,10 @@ public class AdminHomePage extends AppCompatActivity {
         nv = (NavigationView)findViewById(R.id.navigation_view);
         View hView =  nv.getHeaderView(0);
         nav_user = (LinearLayout) hView.findViewById(R.id.nav_layout);
+        dbHelper = new DBHelper(this);
+        Bundle b = getIntent().getExtras();
+        final String Name = b.getString("Name");
+        final String Email = b.getString("Email");
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -74,10 +79,44 @@ public class AdminHomePage extends AppCompatActivity {
                         Intent chooser= Intent.createChooser(intent,"Open website using...");
                         if(intent.resolveActivity(getPackageManager())!=null);
                         startActivity(chooser);
-                        Toast.makeText(AdminHomePage.this, "Visiting Website",Toast.LENGTH_SHORT).show();break;
+                        Toast.makeText(AdminHomePage.this, "Visiting Website",Toast.LENGTH_SHORT).show();
+                        break;
                     case R.id.visit_contact:
                         Intent intent0 = new Intent(AdminHomePage.this, AfterLoginActivity.class);
                         startActivity(intent0);
+                        break;
+                    case R.id.manage_fac_details:
+                        Intent facultyIntent = new Intent(AdminHomePage.this, ManageFaculties.class);
+                        startActivity(facultyIntent);
+                        break;
+                    case R.id.manage_stud_details:
+                        Intent studentIntent = new Intent(AdminHomePage.this, ManageStudents.class);
+                        startActivity(studentIntent);
+                        break;
+                    case R.id.delete_account:
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(AdminHomePage.this);
+                        dialog.setTitle("Delete Account");
+                        dialog.setMessage("Do You really want to delete your account from the application?");
+                        dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                if (dbHelper.removeAdminEntry(Email)){
+                                    Intent intent1 = new Intent(AdminHomePage.this, RelativeLoginActivity.class);
+                                    startActivity(intent1);
+                                    Toast.makeText(AdminHomePage.this, "Account Deleted",Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }else {
+                                    Toast.makeText(AdminHomePage.this, "Error!", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                        dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                onResume();
+                            }
+                        });
+                        dialog.show();
                         break;
                     case R.id.logout:
                         Intent intent1 = new Intent(AdminHomePage.this, RelativeLoginActivity.class);
@@ -106,9 +145,6 @@ public class AdminHomePage extends AppCompatActivity {
                 getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
             }
         }
-        Bundle b = getIntent().getExtras();
-        final String Name = b.getString("Name");
-        final String Email = b.getString("Email");
         View header = nv.getHeaderView(0);
         TextView text = (TextView) header.findViewById(R.id.username);
         text.setText(Name+" ("+Email+")");

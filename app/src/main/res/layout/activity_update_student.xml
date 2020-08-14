@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scroller"
+    android:background="@drawable/navy"
+    tools:context=".UpdateStudent">
+
+    <RelativeLayout
+        android:id="@+id/the_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/title_container"
+            android:layout_width="360dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="5dp"
+                android:src="@drawable/student"
+                android:background="@drawable/button_selector_white"/>
+
+            <TextView
+                android:id="@+id/main_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/logo"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Update Student Details"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_container"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Name: "
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_name"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_name"
+            android:textSize="25dp"
+            android:maxLength="30"
+            android:drawableLeft="@drawable/ic_person_blue_36dp"
+            android:hint="Enter Full Name Here"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/curved_view"/>
+
+        <TextView
+            android:id="@+id/txt_email"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_name"
+            android:fontFamily="sans-serif-condensed"
+            android:text="E-Mail: "
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_email"
+            android:inputType="textEmailAddress"
+            android:textSize="25dp"
+            android:hint="Enter E-Mail Address"
+            android:drawableLeft="@drawable/ic_email_blue_36dp"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/curved_view"/>
+
+        <TextView
+            android:id="@+id/txt_address"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_email"
+            android:text="Residential Address: "
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_address"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/txt_address"
+            android:textSize="25dp"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Include PIN, City &amp; State"
+            android:background="@drawable/curved_view"
+            android:drawableLeft="@drawable/ic_location_on_blue_36dp"
+            android:minLines="3"/>
+
+        <TextView
+            android:id="@+id/txt_age"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_address"
+            android:text="Age: "
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_age"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/txt_age"
+            android:textSize="25dp"
+            android:hint="Enter Your Age"
+            android:drawableLeft="@drawable/ic_perm_contact_calendar_blue_24dp"
+            android:inputType="number"
+            android:fontFamily="sans-serif-condensed"
+            android:maxLength="3"
+            android:background="@drawable/curved_view"/>
+
+        <TextView
+            android:id="@+id/txt_phone"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_age"
+            android:text="Contact: "
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_phone"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_phone"
+            android:textSize="25dp"
+            android:hint="Enter Mobile Number"
+            android:drawableLeft="@drawable/ic_call_blue_36dp"
+            android:fontFamily="sans-serif-condensed"
+            android:maxLength="10"
+            android:inputType="phone"
+            android:background="@drawable/curved_view"/>
+
+        <TextView
+            android:id="@+id/txt_gender"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_phone"
+            android:text="Gender: "
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <RadioGroup
+            android:id="@+id/rg_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/txt_gender">
+
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:textSize="25dp"/>
+
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:textSize="25dp"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txt_department"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rg_gender"
+            android:text="Department: "
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <Spinner
+            android:id="@+id/edt_department"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_department"
+            android:textSize="25dp"
+            android:spinnerMode="dropdown"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/curved_view"/>
+
+        <TextView
+            android:id="@+id/txt_roll_no"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_department"
+            android:text="Roll Number: "
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_roll_no"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_roll_no"
+            android:textSize="25dp"
+            android:drawableLeft="@mipmap/ic_launcher_account"
+            android:hint="Enter Student's Roll No."
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/curved_view"/>
+
+        <TextView
+            android:id="@+id/txt_batch"
+            android:layout_width="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_roll_no"
+            android:text="Batch: "
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/edt_batch"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_batch"
+            android:textSize="25dp"
+            android:hint="Enter Year of Admission"
+            android:inputType="number"
+            android:maxLength="4"
+            android:drawableLeft="@drawable/ic_date_range_blue_36dp"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/curved_view"/>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_batch"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="25dp"
+            android:background="@drawable/button_selector1"
+            android:text="Submit"/>
+
+    </RelativeLayout>
+
+</ScrollView>

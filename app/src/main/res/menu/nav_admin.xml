@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/logout"
+        android:icon="@drawable/ic_exit_to_app_black_36dp"
+        android:title="Logout"/>
+    <item android:id="@+id/go_to_web"
+        android:icon="@drawable/ic_web_darkgreen_36dp"
+        android:title="Visit University Website"/>
+    <item android:id="@+id/visit_contact"
+        android:icon="@drawable/ic_person_blue_36dp"
+        android:title="Reach Out to Someone"/>
+    <item android:id="@+id/manage_fac_details"
+        android:icon="@drawable/ic_perm_contact_calendar_blue_24dp"
+        android:title="Manage Faculties' Details"/>
+    <item android:id="@+id/manage_stud_details"
+        android:icon="@drawable/ic_perm_contact_calendar_blue_24dp"
+        android:title="Manage Students' Details"/>
+    <item android:id="@+id/delete_account"
+        android:icon="@drawable/ic_security_blue_24dp"
+        android:title="Delete My Account"/>
+
+</menu>

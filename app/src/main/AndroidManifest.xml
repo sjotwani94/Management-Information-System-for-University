@@ -17,7 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddNoticeActivity"></activity>
+        <activity android:name=".UpdateStudent"></activity>
+        <activity android:name=".UpdateFaculty" />
+        <activity android:name=".ManageStudents" />
+        <activity android:name=".ManageFaculties" />
+        <activity android:name=".AddNoticeActivity" />
         <activity android:name=".ViewNoticesActivity" />
         <activity android:name=".WhatsAppActivity" />
         <activity android:name=".EmailActivity" />
