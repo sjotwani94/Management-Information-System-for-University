@@ -92,6 +92,22 @@ public class EmailActivity extends AppCompatActivity implements Spinner.OnItemSe
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (sharedpreferences.contains(Theme)){
+            if (sharedpreferences.getString(Theme,"").matches("Light")){
+                s1.setBackgroundResource(R.drawable.navy);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+            }else if (sharedpreferences.getString(Theme,"").matches("Dark")){
+                s1.setBackgroundResource(R.drawable.blackcar);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+            }
+        }
+    }
+
+    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
         ((TextView) parent.getChildAt(0)).setTextSize(25);

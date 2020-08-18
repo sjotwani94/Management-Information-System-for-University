@@ -251,6 +251,25 @@ public class RelativeLoginActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if(mainLayout.getBackground().getConstantState()==getResources().getDrawable(R.drawable.navy).getConstantState()
+        || mainLayout.getBackground().getConstantState()==getResources().getDrawable(R.drawable.blackcar).getConstantState()){
+            if (sharedpreferences.contains(Theme)){
+                if (sharedpreferences.getString(Theme,"").matches("Light")){
+                    mainLayout.setBackgroundResource(R.drawable.navy);
+                    getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_yellow)));
+                    getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + getSupportActionBar().getTitle() + "</font>")));
+                }else if (sharedpreferences.getString(Theme,"").matches("Dark")){
+                    mainLayout.setBackgroundResource(R.drawable.blackcar);
+                    getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.simple_black)));
+                    getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#0000FF\">" + getSupportActionBar().getTitle() + "</font>")));
+                }
+            }
+        }
+    }
+
+    @Override
     public void onBackPressed() {
         //super.onBackPressed();
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
